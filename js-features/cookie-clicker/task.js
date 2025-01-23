@@ -1,17 +1,19 @@
 const cookie = document.getElementById('cookie');
-const counter = document.getElementById('counter');
+const counter = document.getElementById('clicker__counter');
 
-let clickCount = 0;
-let isBig = false;
+const originalSize = 200;
+const reducedSize = 150;
+
+let isCookieReduced = false;
 
 cookie.addEventListener('click', () => {
-  clickCount++;
-  counter.textContent = clickCount;
+    counter.textContent = Number(counter.textContent) + 1;
 
-  if (isBig) {
-    cookie.style.transform = 'scale(1)';
-  } else {
-    cookie.style.transform = 'scale(1.2)';
-  }
-  isBig = !isBig;
+    if (isCookieReduced) {
+        cookie.width = originalSize;
+    } else {
+        cookie.width = reducedSize;
+    }
+
+    isCookieReduced = !isCookieReduced;
 });
